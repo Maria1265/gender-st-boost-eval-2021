@@ -24,7 +24,7 @@ Descrição da informação disponível no dataset, columnas das tabelas:
 
 ## Hipóteses nulas avaliadas
 
-- **H1(nula)**: Não há diferença significativa na experiência de fluxo dos participantes em cenários gamificados de acordo com o que podem experiênciar (`stBoost`: impulso de estereótipo, `stThreat`: ameaça de estereótipo, `neutro`: sem estereótipo), levando em consideração a disposição no fluxo dos participantes. 
+- **H1(nula)**: Em cenários gamificados, não há diferença significativa na experiência de fluxo dos participantes que receberam mensagens alinhadas com seu genero (`stBoost`: impulso de estereótipo), participantes que receveram mensagens opostas com seu genero (`stThreat`: ameaça de estereótipo), e participantes sem mensagems (`neutro`: sem estereótipo), levando em consideração a disposição no fluxo dos participantes. 
   - Resultado do teste de hipóteses: [H1-fss-ancova/results/ancova.md](H1-fss-ancova/results/ancova.md)
    
 - **H2(nula)**: Não há diferença significativa na experiência de fluxo dos participantes entre os fatores tipo de cenário (`stMale`: cenário gamificado com um mensagem explícito de impulso masculino, `stFemale`: cenário gamificado com mensagem explícito de impulso femenino, e `default`: cenário gamificado sem mensagens de impulso) e o sexo (masculino e femenino) dos participantes, levando em consideração a disposição no fluxo dos participantes.
