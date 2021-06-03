@@ -48,7 +48,7 @@ Geiser C. Challco <geiser@alumni.usp.br>
 | neutro   | autoeficacia.pre |  38 | 6.724 |  7.333 | 2.167 |   8 | 1.463 | 0.237 | 0.481 | 1.917 | NO       |   -1.422 |    1.692 |
 | NA       | autoeficacia.pre | 142 | 6.502 |  7.000 | 1.000 |   8 | 1.404 | 0.118 | 0.233 | 1.667 | NO       |   -1.491 |    2.461 |
 
-![](/home/rstudio/report/ancova/1354089a9563b8be/results/ancova_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ## Checking of Assumptions
 
@@ -62,7 +62,7 @@ Applying transformation in “autoeficacia.pos” to reduce skewness
 density_res_plot(rdat[["autoeficacia.pos"]],"autoeficacia.pos",between,c(),covar)
 ```
 
-![](/home/rstudio/report/ancova/1354089a9563b8be/results/ancova_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 ``` r
 rdat[["autoeficacia.pos"]][["autoeficacia.pos"]] <- sqrt(max(dat[["autoeficacia.pos"]][["autoeficacia.pos"]]+1) - dat[["autoeficacia.pos"]][["autoeficacia.pos"]])
@@ -70,7 +70,7 @@ rdat[["autoeficacia.pos"]][["autoeficacia.pre"]] <- sqrt(max(dat[["autoeficacia.
 density_res_plot(rdat[["autoeficacia.pos"]],"autoeficacia.pos",between,c(),covar)
 ```
 
-![](/home/rstudio/report/ancova/1354089a9563b8be/results/ancova_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
 
 #### Dealing with outliers (performing treatment of outliers)
 
@@ -144,7 +144,7 @@ stat_smooth(method = "loess", span = 0.9)
 
     ## `geom_smooth()` using formula 'y ~ x'
 
-![](/home/rstudio/report/ancova/1354089a9563b8be/results/ancova_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 
 ### Assumption: Homogeneity of data distribution
 
@@ -164,7 +164,7 @@ Descriptive statistics of data with normal distribution
 | neutro   | autoeficacia.pos |  37 | 1.638 |  1.683 |   1 | 2.306 | 0.407 | 0.067 | 0.136 | 0.604 | YES       | Shapiro-Wilk |     0.947 | 0.079 | ns       |
 | NA       | autoeficacia.pos | 141 | 1.573 |  1.581 |   1 | 2.306 | 0.357 | 0.030 | 0.059 | 0.426 | QQ        | D’Agostino   |     4.333 | 0.115 | ns       |
 
-![](/home/rstudio/report/ancova/1354089a9563b8be/results/ancova_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
 
 ## Computation of ANCOVA Test and Pairwise Comparison
 
@@ -204,7 +204,7 @@ plots <- oneWayAncovaPlots(sdat[["autoeficacia.pos"]], "autoeficacia.pos", betwe
 plots[["condicao"]]
 ```
 
-![](/home/rstudio/report/ancova/1354089a9563b8be/results/ancova_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
 
 ### Textual Report
 
