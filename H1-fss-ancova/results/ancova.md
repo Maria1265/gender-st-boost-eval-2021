@@ -47,7 +47,7 @@ Geiser C. Challco <geiser@alumni.usp.br>
 | neutro   | dfs      |  38 | 3.640 |  3.556 | 2.222 | 5.000 | 0.603 | 0.098 | 0.198 | 0.889 | YES      |    0.096 |   -0.200 |
 | NA       | dfs      | 142 | 3.674 |  3.667 | 1.000 | 5.000 | 0.590 | 0.049 | 0.098 | 0.778 | NO       |   -0.608 |    1.943 |
 
-![](/home/rstudio/report/ancova/8423b564a004448d/results/ancova_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ## Checking of Assumptions
 
@@ -127,7 +127,7 @@ stat_smooth(method = "loess", span = 0.9)
 
     ## `geom_smooth()` using formula 'y ~ x'
 
-![](/home/rstudio/report/ancova/8423b564a004448d/results/ancova_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 ### Assumption: Homogeneity of data distribution
 
@@ -147,7 +147,7 @@ Descriptive statistics of data with normal distribution
 | neutro   | fss      |  38 | 3.855 |  3.944 | 2.889 | 4.794 | 0.501 | 0.081 | 0.165 | 0.444 | YES       | Shapiro-Wilk |     0.946 | 0.064 | ns       |
 | NA       | fss      | 139 | 3.810 |  3.778 | 2.889 | 4.883 | 0.523 | 0.044 | 0.088 | 0.667 | QQ        | D’Agostino   |     5.605 | 0.061 | ns       |
 
-![](/home/rstudio/report/ancova/8423b564a004448d/results/ancova_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
 
 ## Computation of ANCOVA Test and Pairwise Comparison
 
@@ -187,7 +187,7 @@ plots <- oneWayAncovaPlots(sdat[["fss"]], "fss", between
 plots[["condicao"]]
 ```
 
-![](/home/rstudio/report/ancova/8423b564a004448d/results/ancova_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
 
 ### Textual Report
 
