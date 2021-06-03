@@ -210,7 +210,7 @@ plots <- twoWayAncovaPlots(sdat[["fss"]], "fss", between
 plots[["stType"]]
 ```
 
-![](/home/rstudio/report/ancova/cce72babc84691c5/results/ancova_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
+![](../results/ancova_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
 
 #### Plot for: `fss` \~ `gender`
 
@@ -218,7 +218,7 @@ plots[["stType"]]
 plots[["gender"]]
 ```
 
-![](/home/rstudio/report/ancova/cce72babc84691c5/results/ancova_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
+![](../results/ancova_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
 
 ### Textual Report
 
