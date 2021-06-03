@@ -33,6 +33,7 @@ Geiser C. Challco <geiser@alumni.usp.br>
 -   Initial table file:
     [../data/initial-table.csv](../data/initial-table.csv)
 -   Data for fss: [../data/table-for-fss.csv](../data/table-for-fss.csv)
+-   Data without ouliers and normality distribution: [../data/table-with-normal-distribution.csv](../data/table-with-normal-distribution.csv)
 -   Other data: [../data/](../data/) 
 
 ### Descriptive statistics of initial data
