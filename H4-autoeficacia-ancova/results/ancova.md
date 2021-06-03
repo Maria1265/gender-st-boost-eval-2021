@@ -54,7 +54,7 @@ Geiser C. Challco <geiser@alumni.usp.br>
 | stMale   | Masculino | autoeficacia.pre |  43 | 6.826 |  7.000 | 5.000 | 8.000 | 0.776 | 0.118 | 0.239 | 0.917 | YES      |   -0.491 |   -0.537 |
 | NA       | NA        | autoeficacia.pre | 142 | 6.502 |  7.000 | 1.000 | 8.000 | 1.404 | 0.118 | 0.233 | 1.667 | NO       |   -1.491 |    2.461 |
 
-![](/home/rstudio/report/ancova/692c758e31a511ea/results/ancova_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ## Checking of Assumptions
 
@@ -68,7 +68,7 @@ Applying transformation in “autoeficacia.pos” to reduce skewness
 density_res_plot(rdat[["autoeficacia.pos"]],"autoeficacia.pos",between,c(),covar)
 ```
 
-![](/home/rstudio/report/ancova/692c758e31a511ea/results/ancova_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 ``` r
 rdat[["autoeficacia.pos"]][["autoeficacia.pos"]] <- sqrt(max(dat[["autoeficacia.pos"]][["autoeficacia.pos"]]+1) - dat[["autoeficacia.pos"]][["autoeficacia.pos"]])
@@ -76,7 +76,7 @@ rdat[["autoeficacia.pos"]][["autoeficacia.pre"]] <- log10(max(dat[["autoeficacia
 density_res_plot(rdat[["autoeficacia.pos"]],"autoeficacia.pos",between,c(),covar)
 ```
 
-![](/home/rstudio/report/ancova/692c758e31a511ea/results/ancova_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
 
 #### Dealing with outliers (performing treatment of outliers)
 
@@ -153,7 +153,7 @@ stat_smooth(method = "loess", span = 0.9)
 
     ## `geom_smooth()` using formula 'y ~ x'
 
-![](/home/rstudio/report/ancova/692c758e31a511ea/results/ancova_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 
 ### Assumption: Homogeneity of data distribution
 
@@ -176,7 +176,7 @@ Descriptive statistics of data with normal distribution
 | stMale   | Masculino | autoeficacia.pos |  26 | 1.343 |  1.354 | 1.000 | 1.581 | 0.153 | 0.030 | 0.062 | 0.233 | YES       | Shapiro-Wilk |     0.924 | 0.056 | ns       |
 | NA       | NA        | autoeficacia.pos | 117 | 1.604 |  1.581 | 1.000 | 2.306 | 0.362 | 0.033 | 0.066 | 0.517 | QQ        | D’Agostino   |     7.350 | 0.025 | ns       |
 
-![](/home/rstudio/report/ancova/692c758e31a511ea/results/ancova_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
 
 ## Computation of ANCOVA Test and Pairwise Comparison
 
@@ -227,7 +227,7 @@ plots <- twoWayAncovaPlots(sdat[["autoeficacia.pos"]], "autoeficacia.pos", betwe
 plots[["stType"]]
 ```
 
-![](/home/rstudio/report/ancova/692c758e31a511ea/results/ancova_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
 
 #### Plot for: `autoeficacia.pos` \~ `gender`
 
@@ -235,7 +235,7 @@ plots[["stType"]]
 plots[["gender"]]
 ```
 
-![](/home/rstudio/report/ancova/692c758e31a511ea/results/ancova_files/figure-gfm/unnamed-chunk-28-1.png)<!-- -->
+![](ancova_files/figure-gfm/unnamed-chunk-28-1.png)<!-- -->
 
 ### Textual Report
 
