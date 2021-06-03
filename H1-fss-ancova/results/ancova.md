@@ -32,7 +32,8 @@ Geiser C. Challco <geiser@alumni.usp.br>
 -   R-script file: [../code/ancova.R](../code/ancova.R)
 -   Initial table file:
     [../data/initial-table.csv](../data/initial-table.csv)
--   Data for fss [../data/table-for-fss.csv](../data/table-for-fss.csv)
+-   Data for fss: [../data/table-for-fss.csv](../data/table-for-fss.csv)
+-   Other data: [../data/](../data/) 
 
 ### Descriptive statistics of initial data
 
