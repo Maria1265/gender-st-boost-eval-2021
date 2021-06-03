@@ -136,7 +136,7 @@ stat_smooth(method = "loess", span = 0.9)
 
     ## `geom_smooth()` using formula 'y ~ x'
 
-![](/home/rstudio/report/ancova/cce72babc84691c5/results/ancova_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](../report/ancova/cce72babc84691c5/results/ancova_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 ### Assumption: Homogeneity of data distribution
 
@@ -159,7 +159,7 @@ Descriptive statistics of data with normal distribution
 | stMale   | Masculino | fss      |  31 | 4.024 |  4.111 | 3.000 | 4.873 | 0.492 | 0.088 | 0.181 | 0.889 | YES       | Shapiro-Wilk |     0.934 | 0.058 | ns       |
 | NA       | NA        | fss      | 120 | 3.860 |  3.889 | 2.889 | 4.883 | 0.498 | 0.045 | 0.090 | 0.667 | QQ        | D’Agostino   |     2.325 | 0.313 | ns       |
 
-![](/home/rstudio/report/ancova/cce72babc84691c5/results/ancova_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
+![](../report/ancova/cce72babc84691c5/results/ancova_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
 
 ## Computation of ANCOVA Test and Pairwise Comparison
 
