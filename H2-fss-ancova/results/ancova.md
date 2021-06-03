@@ -53,7 +53,7 @@ Geiser C. Challco <geiser@alumni.usp.br>
 | stMale   | Masculino | dfs      |  43 | 3.757 |  3.667 | 2.778 | 4.556 | 0.500 | 0.076 | 0.154 | 0.500 | YES      |   -0.069 |   -0.675 |
 | NA       | NA        | dfs      | 142 | 3.674 |  3.667 | 1.000 | 5.000 | 0.590 | 0.049 | 0.098 | 0.778 | NO       |   -0.608 |    1.943 |
 
-![](/home/rstudio/report/ancova/cce72babc84691c5/results/ancova_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](../report/ancova/cce72babc84691c5/results/ancova_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ## Checking of Assumptions
 
