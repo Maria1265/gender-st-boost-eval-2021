@@ -24,23 +24,23 @@ Descrição da informação disponível no dataset, columnas das tabelas:
 
 ## Hipóteses nulas avaliadas
 
-- **H1(nula)**: Em cenários gamificados, não há diferença significativa na experiência de fluxo dos participantes que receberam mensagens alinhadas com seu genero (`stBoost`: impulso de estereótipo), participantes que receveram mensagens opostas com seu genero (`stThreat`: ameaça de estereótipo), e participantes sem mensagems (`neutro`: sem estereótipo), levando em consideração a disposição no fluxo dos participantes. 
+- **H1(nula)**: Em cenários gamificados, não há diferença significativa na experiência de fluxo dos participantes que receberam mensagens estereotipadas alinhadas com seu genero (`stBoost`: impulso de estereótipo), dos participantes que receberam mensagens estereotipadas opostas com seu genero (`stThreat`: ameaça de estereótipo), e dos participantes que não receberam mensagens (`neutro`: sem estereótipo), levando em consideração a disposição no fluxo dos participantes. 
   - Resultado do teste de hipóteses: [H1-fss-ancova/results/ancova.md](H1-fss-ancova/results/ancova.md)
    
-- **H2(nula)**: Não há diferença significativa na experiência de fluxo dos participantes entre os fatores tipo de cenário (`stMale`: cenário gamificado com um mensagem explícito de impulso masculino, `stFemale`: cenário gamificado com mensagem explícito de impulso femenino, e `default`: cenário gamificado sem mensagens de impulso) e o sexo (masculino e femenino) dos participantes, levando em consideração a disposição no fluxo dos participantes.
+- **H2(nula)**: Não há diferença significativa na experiência de fluxo dos participantes entre os fatores tipo de cenário (`stMale`: cenário gamificado com mensagem estereotipada explícito de impulso masculino, `stFemale`: cenário gamificado com mensagem estereotipada explícito de impulso femenino, e `default`: cenário gamificado sem mensagens estereotipada) e o sexo (masculino e femenino) dos participantes, levando em consideração a disposição no fluxo dos participantes.
   - Resultado do teste de hipóteses: [H2-fss-ancova/results/ancova.md](H2-fss-ancova/results/ancova.md)
   
-- **H3(nula)**: Em cenários gamificados, não há diferença significativa na autoeficâcia em logica dos participantes que receberam mensagens alinhadas com seu genero (`stBoost`: impulso de estereótipo), participantes que receveram mensagens opostas com seu genero (`stThreat`: ameaça de estereótipo), e participantes sem mensagems (`neutro`: sem estereótipo), levando em consideração a autoeficâcia em logica antes da participção no estudo.
+- **H3(nula)**: Em cenários gamificados, não há diferença significativa na autoeficâcia em lógica dos participantes que receberam mensagens estereotipadas alinhadas com seu genero (`stBoost`: impulso de estereótipo), dos participantes que receberam mensagens estereotipadas opostas com seu genero (`stThreat`: ameaça de estereótipo), e dos participantes que não receberam mensagens (`neutro`: sem estereótipo), levando em consideração a autoeficâcia em lógica antes da participação no estudo.
   - Resultado do teste de hipóteses: [H3-autoeficacia-ancova/results/ancova.md](H3-autoeficacia-ancova/results/ancova.md)
 
-- **H4(nula)**: Não há diferença significativa na autoeficácia em logica dos participantes entre os fatores tipo de cenário (`stMale`: cenário gamificado com um mensagem explícito de impulso masculino, `stFemale`: cenário gamificado com mensagem explícito de impulso femenino, e `default`: cenário gamificado sem mensagens de impulso) e o sexo (masculino e femenino) dos participantes, levando em consideração a autoeficâcia em logica antes da participação no estudo.
+- **H4(nula)**: Não há diferença significativa na autoeficácia em lógica dos participantes entre os fatores tipo de cenário (`stMale`: cenário gamificado com mensagem estereotipada explícito de impulso masculino, `stFemale`: cenário gamificado com mensagem estereotipada explícito de impulso femenino, e `default`: cenário gamificado sem mensagens estereotipada) e o sexo (masculino e femenino) dos participantes, levando em consideração a autoeficâcia em lógica antes da participação no estudo.
   - Resultado do teste de hipóteses: [H4-autoeficacia-ancova/results/ancova.md](H4-autoeficacia-ancova/results/ancova.md)
 
-- **H5(nula)**: Em cenários gamificados, não há diferença significativa no desempenho acadêmico dos participantes que receberam mensagens alinhadas com seu genero (`stBoost`: impulso de estereótipo), participantes que receveram mensagens opostas com seu genero (`stThreat`: ameaça de estereótipo), e participantes sem mensagems (`neutro`: sem estereótipo), levando em consideração a disposição no fluxo dos participantes
-  - Resultado do teste de hipóteses: 
+- **H5(nula)**: Em cenários gamificados, não há diferença significativa no desempenho acadêmico em logica (`points`) dos participantes que receberam mensagens estereotipadas alinhadas com seu genero (`stBoost`: impulso de estereótipo), dos participantes que receberam mensagens estereotipadas opostas com seu genero (`stThreat`: ameaça de estereótipo), e dos participantes que não receberam mensagens (`neutro`: sem estereótipo).
+  - Resultado do teste de hipóteses: [H5-points-ancova/results/ancova.md](H4-autoeficacia-ancova/results/ancova.md)
  
-- **H6(nula)**: Não há diferença significativa no desempenho acadêmico dos participantes entre os fatores tipo de cenário (`stMale`: cenário gamificado com um mensagem explícito de impulso masculino, `stFemale`: cenário gamificado com mensagem explícito de impulso femenino, e `default`: cenário gamificado sem mensagens de impulso) e o sexo (masculino e femenino) dos participantes.
-  - Resultado do teste de hipóteses: 
+- **H6(nula)**: Não há diferença significativa no desempenho acadêmico em logica (`points`) dos participantes entre os fatores tipo de cenário (`stMale`: cenário gamificado com mensagem estereotipada explícito de impulso masculino, `stFemale`: cenário gamificado com mensagem estereotipada explícito de impulso femenino, e `default`: cenário gamificado sem mensagens estereotipada) e o sexo (masculino e femenino) dos participantes.
+  - Resultado do teste de hipóteses: [H6-points-ancova/results/ancova.md](H4-autoeficacia-ancova/results/ancova.md)
 
 
 ## 
