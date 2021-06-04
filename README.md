@@ -37,10 +37,10 @@ Descrição da informação disponível no dataset, columnas das tabelas:
   - Resultado do teste de hipóteses: [H4-autoeficacia-ancova/results/ancova.md](H4-autoeficacia-ancova/results/ancova.md)
 
 - **H5(nula)**: Em cenários gamificados, não há diferença significativa no desempenho acadêmico em lógica (`points`) dos participantes que receberam mensagens estereotipadas alinhadas com seu genero (`stBoost`: impulso de estereótipo), dos participantes que receberam mensagens estereotipadas opostas com seu genero (`stThreat`: ameaça de estereótipo), e dos participantes que não receberam mensagens (`neutro`: sem estereótipo).
-  - Resultado do teste de hipóteses: [H5-points-ancova/results/ancova.md](H5-points-ancova/results/anova.md)
+  - Resultado do teste de hipóteses: [H5-points-anova/results/factorialAncova.md](H5-points-anova/results/factorialAncova.md)
  
 - **H6(nula)**: Não há diferença significativa no desempenho acadêmico em lógica (`points`) dos participantes entre os fatores tipo de cenário (`stMale`: cenário gamificado com mensagem estereotipada explícito de impulso masculino, `stFemale`: cenário gamificado com mensagem estereotipada explícito de impulso femenino, e `default`: cenário gamificado sem mensagens estereotipada) e o sexo (masculino e femenino) dos participantes.
-  - Resultado do teste de hipóteses: [H6-points-ancova/results/ancova.md](H6-points-ancova/results/anova.md)
+  - Resultado do teste de hipóteses: [H6-points-anova/results/factorialAncova.md](H6-points-anova/results/factorialAncova.md)
 
 
 ## 
