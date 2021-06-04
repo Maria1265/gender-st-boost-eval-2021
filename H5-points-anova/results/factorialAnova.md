@@ -46,7 +46,7 @@ Geiser C. Challco <geiser@alumni.usp.br>
 | neutro   | points   |  38 | 11.395 |     12 |   1 |  18 | 4.378 | 0.710 | 1.439 | 3.00 | NO       |   -0.944 |    0.015 |
 | NA       | points   | 142 | 11.831 |     13 |   1 |  20 | 4.788 | 0.402 | 0.794 | 4.75 | NO       |   -0.610 |   -0.333 |
 
-![](/home/rstudio/report/factorial-anova/6c278797d60d2373/results/factorialAnova_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](factorialAnova_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ## Checking of Assumptions
 
@@ -60,14 +60,14 @@ Applying transformation in “points” to reduce skewness
 density_res_plot(rdat[["points"]],"points",between)
 ```
 
-![](/home/rstudio/report/factorial-anova/6c278797d60d2373/results/factorialAnova_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](factorialAnova_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 ``` r
 rdat[["points"]][["points"]] <- sqrt(max(dat[["points"]][["points"]]+1) - dat[["points"]][["points"]])
 density_res_plot(rdat[["points"]],"points",between)
 ```
 
-![](/home/rstudio/report/factorial-anova/6c278797d60d2373/results/factorialAnova_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
+![](factorialAnova_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
 
 #### Dealing with outliers (performing treatment of outliers)
 
@@ -151,7 +151,7 @@ Descriptive statistics of data with normal distribution
 | neutro   | points   |  38 | 3.039 |  3.000 | 2.160 | 4.243 | 0.622 | 0.101 | 0.204 | 0.517 | NO        | Shapiro-Wilk |     0.887 | 0.001 | \*\*     |
 | NA       | points   | 142 | 2.940 |  2.828 | 1.414 | 4.243 | 0.746 | 0.063 | 0.124 | 0.829 | QQ        | D’Agostino   |     1.304 | 0.521 | ns       |
 
-![](/home/rstudio/report/factorial-anova/6c278797d60d2373/results/factorialAnova_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
+![](factorialAnova_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
 
 ## Computation of ANOVA Test and Pairwise Comparison
 
@@ -189,7 +189,7 @@ plots <- oneWayAnovaPlots(sdat[["points"]], "points", between, aov[["points"]], 
 plots[["condicao"]]
 ```
 
-![](/home/rstudio/report/factorial-anova/6c278797d60d2373/results/factorialAnova_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
+![](factorialAnova_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
 
 ### Textual Report
 
