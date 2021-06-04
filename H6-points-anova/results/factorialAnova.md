@@ -49,7 +49,7 @@ Geiser C. Challco <geiser@alumni.usp.br>
 | stMale   | Masculino | points   |  43 | 13.674 |   15.0 |   2 |  20 | 5.003 | 0.763 | 1.540 | 4.00 | NO       |   -0.752 |   -0.192 |
 | NA       | NA        | points   | 142 | 11.831 |   13.0 |   1 |  20 | 4.788 | 0.402 | 0.794 | 4.75 | NO       |   -0.610 |   -0.333 |
 
-![](/home/rstudio/report/factorial-anova/e98ad42f6f573f90/results/factorialAnova_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](factorialAnova_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ## Checking of Assumptions
 
@@ -63,14 +63,14 @@ Applying transformation in “points” to reduce skewness
 density_res_plot(rdat[["points"]],"points",between)
 ```
 
-![](/home/rstudio/report/factorial-anova/e98ad42f6f573f90/results/factorialAnova_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](factorialAnova_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 ``` r
 rdat[["points"]][["points"]] <- sqrt(max(dat[["points"]][["points"]]+1) - dat[["points"]][["points"]])
 density_res_plot(rdat[["points"]],"points",between)
 ```
 
-![](/home/rstudio/report/factorial-anova/e98ad42f6f573f90/results/factorialAnova_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
+![](factorialAnova_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
 
 #### Dealing with outliers (performing treatment of outliers)
 
@@ -162,7 +162,7 @@ Descriptive statistics of data with normal distribution
 | stMale   | Masculino | points   |  34 | 2.510 |  2.449 | 1.414 | 4.123 | 0.623 | 0.107 | 0.217 | 0.764 | YES       | Shapiro-Wilk |     0.938 | 0.053 | ns       |
 | NA       | NA        | points   | 122 | 2.898 |  2.828 | 1.414 | 4.243 | 0.646 | 0.058 | 0.116 | 0.713 | QQ        | D’Agostino   |     1.730 | 0.421 | ns       |
 
-![](/home/rstudio/report/factorial-anova/e98ad42f6f573f90/results/factorialAnova_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
+![](factorialAnova_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
 
 ## Computation of ANOVA Test and Pairwise Comparison
 
@@ -211,7 +211,7 @@ plots <- twoWayAnovaPlots(sdat[["points"]], "points", between, aov[["points"]], 
 plots[["stType"]]
 ```
 
-![](/home/rstudio/report/factorial-anova/e98ad42f6f573f90/results/factorialAnova_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
+![](factorialAnova_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
 
 #### Plot of “points” based on “gender” (color: stType)
 
@@ -219,7 +219,7 @@ plots[["stType"]]
 plots[["gender"]]
 ```
 
-![](/home/rstudio/report/factorial-anova/e98ad42f6f573f90/results/factorialAnova_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
+![](factorialAnova_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
 
 ### Textual Report
 
