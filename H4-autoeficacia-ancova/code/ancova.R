@@ -1,5 +1,5 @@
 #' ---
-#' title: "ANCOVA test for `autoeficacia.pos`"
+#' title: "ANCOVA test for `autoeficacia.pos`~`autoeficacia.pre`+`stType`*`gender`"
 #' author: Geiser C. Challco <geiser@alumni.usp.br>
 #' comment: This file is automatically generate by Shiny-Statistic app (https://statistic.geiser.tech/)
 #'          Author - Geiser C. Challco <geiser@alumni.usp.br>
@@ -18,18 +18,15 @@
 #'     toc: true
 #'   html_document:
 #'     toc: true
-#'   pdf_document:
-#'     toc: true
-#'     keep_tex: true
 #' fontsize: 10pt
 #' ---
 #' 
-## ----setup, include=FALSE----------------------------------------------------------------------------------------------------------------------------------------------
+## ----setup, include=FALSE------------------------------------------------------------------------
 ## Install and Load Packages
 if (!'remotes' %in% rownames(installed.packages())) install.packages('remotes')
 if (!"rshinystatistics" %in% rownames(installed.packages())) {
   remotes::install_github("geiser/rshinystatistics")
-} else if (packageVersion("rshinystatistics") < "0.0.0.9151") {
+} else if (packageVersion("rshinystatistics") < "0.0.0.9800") {
   remotes::install_github("geiser/rshinystatistics")
 }
 
@@ -50,13 +47,18 @@ library(rshinystatistics)
 #' * R-script file: [../code/ancova.R](../code/ancova.R)
 #' * Initial table file: [../data/initial-table.csv](../data/initial-table.csv)
 #' * Data for autoeficacia.pos [../data/table-for-autoeficacia.pos.csv](../data/table-for-autoeficacia.pos.csv)
+#' * Table without outliers and normal distribution of  data: [../data/table-with-normal-distribution.csv](../data/table-with-normal-distribution.csv)
+#' * Other data files: [../data/](../data/)
+#' * Files related to the presented results: [../results/](../results/)
 #' 
-## ---- include=FALSE----------------------------------------------------------------------------------------------------------------------------------------------------
+#' 
+## ---- include=FALSE------------------------------------------------------------------------------
 wid <- "ID"
 covar <- "autoeficacia.pre"
 between <- c("stType","gender")
 dvs <- c("autoeficacia.pos")
 names(dvs) <- dvs
+skewness <- c("autoeficacia.pos"="std.autoeficacia.pos")
 
 dat <- lapply(dvs, FUN = function(dv) {
   data <- read.csv(paste0("../data/table-for-",dv,".csv"))
@@ -69,42 +71,39 @@ sdat <- dat
 #' 
 #' ### Descriptive statistics of initial data
 #' 
-## ---- include=FALSE----------------------------------------------------------------------------------------------------------------------------------------------------
+## ---- include=FALSE------------------------------------------------------------------------------
 df <- dat; df[[covar]] <- dat[[1]]
-(df <- descriptive_statistics(df, c(dvs,covar), between, include.global = T, symmetry.test = T))
+(df <- get.descriptives(df, dvs, between, include.global = T, symmetry.test = T))
 
 #' 
 
 #' 
-#' 
-## ---- echo=FALSE-------------------------------------------------------------------------------------------------------------------------------------------------------
-for (dv in dvs) {
-  car::Boxplot(`dv` ~ `stType`*`gender`, data = dat[[dv]] %>% cbind(dv=dat[[dv]][[dv]]), id = list(n = Inf))  
-}
+## ---- echo=FALSE---------------------------------------------------------------------------------
+car::Boxplot(`autoeficacia.pos` ~ `stType`*`gender`, data = dat[["autoeficacia.pos"]], id = list(n = Inf))
 
 #' 
 #' ## Checking of Assumptions
 #' 
 #' ### Assumption: Symmetry and treatment of outliers
 #' 
-#' #### Applying transformation for skewness data when normality is not achieved in any dependent variables or covariance
+#' #### Applying transformation for skewness data when normality is not achieved
 #' 
 #' 
 #'  Applying transformation in "autoeficacia.pos" to reduce skewness
 #' 
-## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-density_res_plot(rdat[["autoeficacia.pos"]],"autoeficacia.pos",between,c(),covar)
-rdat[["autoeficacia.pos"]][["autoeficacia.pos"]] <- sqrt(max(dat[["autoeficacia.pos"]][["autoeficacia.pos"]]+1) - dat[["autoeficacia.pos"]][["autoeficacia.pos"]])
-rdat[["autoeficacia.pos"]][["autoeficacia.pre"]] <- log10(max(dat[["autoeficacia.pos"]][["autoeficacia.pre"]]+1) - dat[["autoeficacia.pos"]][["autoeficacia.pre"]])
-density_res_plot(rdat[["autoeficacia.pos"]],"autoeficacia.pos",between,c(),covar)
+## ------------------------------------------------------------------------------------------------
+density.plot.by.residual(rdat[["autoeficacia.pos"]],"autoeficacia.pos",between,c(),covar)
+rdat[["autoeficacia.pos"]][["std.autoeficacia.pos"]] <- -1*sqrt(max(dat[["autoeficacia.pos"]][["autoeficacia.pos"]]+1) - dat[["autoeficacia.pos"]][["autoeficacia.pos"]])
+
+density.plot.by.residual(rdat[["autoeficacia.pos"]],"std.autoeficacia.pos",between,c(),covar)
 
 #' 
 #' 
 #' 
 #' #### Dealing with outliers (performing treatment of outliers)
 #' 
-## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-rdat[["autoeficacia.pos"]] <- winzorize(rdat[["autoeficacia.pos"]],"autoeficacia.pos", c("stType","gender"),"autoeficacia.pre")
+## ------------------------------------------------------------------------------------------------
+rdat[["autoeficacia.pos"]] <- winzorize(rdat[["autoeficacia.pos"]],"autoeficacia.pos", c("stType","gender"),covar, skewness=skewness)
 
 
 #' 
@@ -112,27 +111,27 @@ rdat[["autoeficacia.pos"]] <- winzorize(rdat[["autoeficacia.pos"]],"autoeficacia
 #' 
 #' #### Removing data that affect normality (extreme values)
 #' 
-## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------
 non.normal <- list(
 "autoeficacia.pos" = c("p37","p44","p50","p63","p69","p105","p04","p09","p10","p27","p28","p49","p79","p86","p88","p101","p110","p111","p121","p134","p142","p29","p48","p109","p120")
 )
-sdat <- remove_from_datatable(rdat, non.normal, wid)
+sdat <- removeFromDataTable(rdat, non.normal, wid)
 
 #' 
 #' #### Result of normality test in the residual model
 #' 
-## ---- include=FALSE----------------------------------------------------------------------------------------------------------------------------------------------------
-(df <- normality_test_by_res(sdat, dvs, between, c(), covar))
+## ---- include=FALSE------------------------------------------------------------------------------
+(df <- normality.test.by.residual(sdat, dvs, between, c(), covar, skewness = skewness))
 
 #' 
 
 #' 
 #' #### Result of normality test in each group
 #' 
-#' This is an optional validation and only performed for groups with number greater than 30 observations
+#' This is an optional validation and only valid for groups with number greater than 30 observations
 #' 
-## ---- include=FALSE----------------------------------------------------------------------------------------------------------------------------------------------------
-(df <- descriptive_statistics(sdat, dvs, between, include.global = T, normality.test = T))
+## ---- include=FALSE------------------------------------------------------------------------------
+(df <- get.descriptives(sdat, dvs, between, include.global = F, normality.test = T, skewness = skewness))
 
 #' 
 
@@ -156,27 +155,29 @@ sdat <- remove_from_datatable(rdat, non.normal, wid)
 #' - For samples with `n > 200` observation, we ignore the normality assumption based on the central theorem limit.
 #' 
 #' 
-#' ### Assumption: Linearity of dependent variables and covariate variable
 #' 
-#' * Linearity test in "autoeficacia.pos"
-## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#' ### Assumption: Linearity of dependent variables and covariate variable 
+#' 
+## ------------------------------------------------------------------------------------------------
 ggscatter(sdat[["autoeficacia.pos"]], x=covar, y="autoeficacia.pos", facet.by=between, short.panel.labs = F) + 
-stat_smooth(method = "loess", span = 0.9)
+ stat_smooth(method = "lm", span = 0.9)
 
+#' 
+#' 
 #' 
 #' 
 #' 
 #' ### Assumption: Homogeneity of data distribution
 #' 
-## ---- include=FALSE----------------------------------------------------------------------------------------------------------------------------------------------------
-(df <- homogeneity_test(sdat, dvs, between, c(), covar))
+## ---- include=FALSE------------------------------------------------------------------------------
+(df <- homogeneity.test(sdat, dvs, between, c(), covar, skewness = skewness))
 
 #' 
 
 #' 
-#' ## Saving the Data with Normal Distribution Used for Performing ANCOVA Test 
+#' ## Saving the Data with Normal Distribution Used for Performing ANCOVA test 
 #' 
-## ---- echo=FALSE-------------------------------------------------------------------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------
 ndat <- sdat[[1]]
 for (dv in names(sdat)[-1]) ndat <- merge(ndat, sdat[[dv]])
 write.csv(ndat, paste0("../data/table-with-normal-distribution.csv"))
@@ -184,59 +185,62 @@ write.csv(ndat, paste0("../data/table-with-normal-distribution.csv"))
 #' 
 #' Descriptive statistics of data with normal distribution
 #' 
-## ---- include=FALSE----------------------------------------------------------------------------------------------------------------------------------------------------
-(df <- descriptive_statistics(sdat, dvs, between, include.global = T, normality.test = T))
+## ---- include=FALSE------------------------------------------------------------------------------
+(df <- get.descriptives(sdat, dvs, between))
 
 #' 
 
 #' 
-## ---- echo=FALSE-------------------------------------------------------------------------------------------------------------------------------------------------------
+## ---- echo=FALSE---------------------------------------------------------------------------------
 for (dv in dvs) {
   car::Boxplot(`dv` ~ `stType`*`gender`, data = sdat[[dv]] %>% cbind(dv=sdat[[dv]][[dv]]), id = list(n = Inf))  
 }
 
 #' 
-#' ## Computation of ANCOVA Test and Pairwise Comparison
+#' ## Computation of ANCOVA test and Pairwise Comparison
 #' 
 #' ### ANCOVA test
 #' 
-## ---- include=FALSE----------------------------------------------------------------------------------------------------------------------------------------------------
-(aov <- ancova.test(sdat, dvs, between, covar, 2, "ges", "var"))
+## ---- include=FALSE------------------------------------------------------------------------------
+aov <- ancova.test(sdat, dvs, between, covar, 2, "ges")
+(adf <- get.ancova.table(aov))
 
 #' 
 
 #' 
 #' ### Pairwise comparison
 #' 
-## ---- include=FALSE----------------------------------------------------------------------------------------------------------------------------------------------------
-(pwc <- ancova.pwc(sdat, dvs, between, covar, "bonferroni", "var"))
+## ---- include=FALSE------------------------------------------------------------------------------
+pwc <- ancova.pwc(sdat, dvs, between, covar, p.adjust.method = "bonferroni")
+(pdf <- get.ancova.pwc.table(pwc, only.sig = F))
 
 #' 
 
 #' 
-#' ### Estimated Marginal Means and ANCOVA Plots 
+#' ### Descriptive Statistic of Estimated Marginal Means
 #' 
-## ---- include=FALSE----------------------------------------------------------------------------------------------------------------------------------------------------
-(emms <- get.ancova.emmeans.with.ds(pwc, sdat, dvs, between, "common", "var"))
+## ---- include=FALSE------------------------------------------------------------------------------
+(apa <- get.ancova.emmeans.with.ds(pwc, sdat, dvs, between, "apa-format", covar = covar))
+(emms <- get.ancova.emmeans.with.ds(pwc, sdat, dvs, between, "common", covar = covar))
 
 #' 
 
 #' 
 #' 
 #' ### Ancova plots for the dependent variable "autoeficacia.pos"
-## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------
 plots <- twoWayAncovaPlots(sdat[["autoeficacia.pos"]], "autoeficacia.pos", between
-, aov[["autoeficacia.pos"]], pwc[["autoeficacia.pos"]], font.label.size=14, step.increase=0.25)
+, aov[["autoeficacia.pos"]], pwc[["autoeficacia.pos"]], addParam = c("jitter"), font.label.size=14, step.increase=0.25, p.label="p.adj")
 
 #' 
 #' #### Plot for: `autoeficacia.pos` ~ `stType`
-## ---- fig.width=7, fig.height=7----------------------------------------------------------------------------------------------------------------------------------------
+## ---- dpi=300, fig.width=7, fig.height=7---------------------------------------------------------
 plots[["stType"]]
 
 #' 
 #' 
 #' #### Plot for: `autoeficacia.pos` ~ `gender`
-## ---- fig.width=7, fig.height=7----------------------------------------------------------------------------------------------------------------------------------------
+## ---- dpi=300, fig.width=7, fig.height=7---------------------------------------------------------
 plots[["gender"]]
 
 #' 
@@ -244,18 +248,17 @@ plots[["gender"]]
 #' 
 #' ### Textual Report
 #' 
-#' After controlling the linearity of covariance "autoeficacia.pre", ANCOVA tests with independent between-subjects variables "stType" (default, stFemale, stMale) and "gender" (Feminino, Masculino) were performed to determine statistically significant difference on the dependent varibles "autoeficacia.pos". For the dependent variable "autoeficacia.pos", there was statistically significant effects in the factor "autoeficacia.pre" with F(1,110)=43.376, p<0.001 and ges=0.283 (effect size) and in the factor "stType" with F(2,110)=5.003, p=0.008 and ges=0.083 (effect size) and in the factor "gender" with F(1,110)=9.185, p=0.003 and ges=0.077 (effect size).
+#' After controlling the linearity of covariance "autoeficacia.pre", ANCOVA tests with independent between-subjects variables "stType" (default, stFemale, stMale) and "gender" (Feminino, Masculino) were performed to determine statistically significant difference on the dependent varibles "autoeficacia.pos". For the dependent variable "autoeficacia.pos", there was statistically significant effects in the factor "autoeficacia.pre" with F(1,110)=45.131, p<0.001 and ges=0.291 (effect size) and in the factor "stType" with F(2,110)=4.832, p=0.01 and ges=0.081 (effect size) and in the factor "gender" with F(1,110)=8.725, p=0.004 and ges=0.073 (effect size).
 #' 
 #' 
-#' Pairwise comparisons using the Estimated Marginal Means (EMMs) were computed to find statistically significant diferences among the groups defined by the independent variables, and with the p-values ajusted by the method "bonferroni". For the dependent variable "autoeficacia.pos", the mean in the stType="default" (adj M=1.637 and SD=0.364) was significantly different than the mean in the stType="stMale" (adj M=1.38 and SD=0.153) with p-adj=0.005; the mean in the stType="stFemale" (adj M=1.617 and SD=0.325) was significantly different than the mean in the stType="stMale" (adj M=1.38 and SD=0.153) with p-adj=0.008; the mean in the gender="Feminino" (adj M=1.702 and SD=0.318) was significantly different than the mean in the gender="Masculino" (adj M=1.38 and SD=0.153) with p-adj=0.001.
+#' 
+#' Pairwise comparisons using the Estimated Marginal Means (EMMs) were computed to find statistically significant diferences among the groups defined by the independent variables, and with the p-values ajusted by the method "bonferroni". For the dependent variable "autoeficacia.pos", the mean in the stType="default" (adj M=6.215 and SD=1.144) was significantly different than the mean in the stType="stMale" (adj M=6.98 and SD=0.401) with p-adj=0.011; the mean in the stType="stFemale" (adj M=6.271 and SD=1.027) was significantly different than the mean in the stType="stMale" (adj M=6.98 and SD=0.401) with p-adj=0.017; the mean in the gender="Feminino" (adj M=6.042 and SD=1.187) was significantly different than the mean in the gender="Masculino" (adj M=6.98 and SD=0.401) with p-adj=0.005.
 #' 
 #' 
 #' 
 #' ## Tips and References
 #' 
 #' - Use the site [https://www.tablesgenerator.com](https://www.tablesgenerator.com) to convert the HTML tables into Latex format
-#' 
-#' - [1]: Ghasemi, A., & Zahediasl, S. (2012). Normality tests for statistical analysis: a guide for non-statisticians. International journal of endocrinology and metabolism, 10(2), 486.
 #' 
 #' - [2]: Miot, H. A. (2017). Assessing normality of data in clinical and experimental trials. J Vasc Bras, 16(2), 88-91.
 #' 
